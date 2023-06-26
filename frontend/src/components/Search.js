@@ -14,7 +14,11 @@ function Search() {
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams);
-      params.set(name, value);
+      if (value != "") {
+        params.set(name, value);
+      } else {
+        params.delete(name);
+      }
       return params.toString();
     },
     [searchParams]
@@ -28,6 +32,12 @@ function Search() {
     router.push(pathname + "?" + createQueryString("text", text));
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      router.push(pathname + "?" + createQueryString("text", text));
+    }
+  };
+
   return (
     <div className="w-full flex flex-row gap-6">
       {/* input */}
@@ -37,6 +47,7 @@ function Search() {
           placeholder="Search by Name,LastName,Email"
           className="w-full text-base text-black mr-4"
           value={text}
+          onKeyDown={handleKeyPress}
           onChange={(e) => setText(e.target.value)}
         />
 

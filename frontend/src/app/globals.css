@@ -46,4 +46,22 @@ a:visited {
   .pagination_selected {
     @apply flex w-9 h-9 items-center justify-center cursor-pointer rounded-full bg-custom_green m-1 border-2 border-custom_green  text-white;
   }
+
+  .modal_bg {
+    @apply fixed bg-modalBgColor flex flex-col z-[102]  w-full h-full top-0 right-0;
+  }
+  .modal_container {
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-y-auto   transition-all  ease-in  flex-grow duration-[1000]
+   flex-col py-2 rounded-lg bg-[#fff] hidden lg:flex;
+  }
+  .modal_mobile {
+    @apply translate-y-0 transform transition-all duration-500 flex lg:hidden overflow-y-auto     w-full min-h-full bg-white fixed left-0 top-0 bottom-0     z-[103];
+  }
+  .modal_closeIcon {
+    @apply w-5 h-5 text-black cursor-pointer flex-shrink-0;
+  }
+
+  .modal_title {
+    @apply text-black font-bold text-sm;
+  }
 }

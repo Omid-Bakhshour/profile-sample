@@ -24,7 +24,11 @@ export default function Home() {
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams);
-      params.set(name, value);
+      if (value != "") {
+        params.set(name, value);
+      } else {
+        params.delete(name);
+      }
       return params.toString();
     },
     [searchParams]
@@ -53,11 +57,7 @@ export default function Home() {
   return (
     <main className="block min-h-screen ">
       <div className="w-full flex flex-col gap-4 max-w-[1366px] mx-auto px-4 py-6 ">
-        {/* title */}
-
         <h1 className="header_title">Profile list</h1>
-
-        {/* search bar  */}
 
         <Search />
 

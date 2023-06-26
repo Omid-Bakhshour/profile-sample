@@ -16,6 +16,18 @@ class addressSerializer(serializers.ModelSerializer):
 class ProfileListSerialiser(serializers.ModelSerializer):
 
     department=departmentSerializer()
+    address=serializers.SerializerMethodField()
+
+        
+    def get_address(self,obj):
+      if len(obj.user_addresses.all())>0:
+        queryset=obj.user_addresses.all()[0]
+        serializers=addressSerializer(queryset).data
+        return serializers  
+      else:
+         return None  
+
+     
     class Meta:
         model = Profile
-        fields = ['id', 'name','last_name', 'email','birthdate','age','active','role','department']
+        fields = ['id', 'name','last_name', 'email','birthdate','age','active','role','department','address']

@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         custom_green: "#07772F",
         tablebg: "#F8FAFC",
+        modalBgColor: "rgba(0, 0, 0, 0.3)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
