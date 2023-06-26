@@ -7,6 +7,7 @@ import axios from "@/services/axios";
 import { useCallback, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Search from "@/components/Search";
+import EmptyResult from "@/components/EmptyResult";
 
 export const metadata = {
   title: "profile list",
@@ -65,37 +66,40 @@ export default function Home() {
           <LoadingList />
         ) : (
           <div className="w-full flex flex-col gap-4">
-            {/* userlist */}
-            <div className="relative overflow-x-auto rounded-xl bg-tablebg border-gray-400 border shadow-sm">
-              <table className="border-collapse table-auto w-full min-w-[500px] text-sm  ">
-                <thead className="bg-custom_green ">
-                  <tr>
-                    <th className="table__head ">email</th>
-                    <th className="table__head ">first name</th>
-                    <th className="table__head ">lastname</th>
-                    <th className="table__head  ">role</th>
-                    <th className="table__head  ">department</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white w-full">
-                  {result?.results?.map((item) => {
-                    return <ProfileItem key={item?.id} item={item} />;
-                  })}
-                </tbody>
-              </table>
-            </div>
+            {result?.results.length > 0 ? (
+              <>
+                <div className="relative overflow-x-auto rounded-xl bg-tablebg border-gray-400 border shadow-sm">
+                  <table className="border-collapse table-auto w-full min-w-[500px] text-sm  ">
+                    <thead className="bg-custom_green ">
+                      <tr>
+                        <th className="table__head ">email</th>
+                        <th className="table__head ">first name</th>
+                        <th className="table__head ">lastname</th>
+                        <th className="table__head  ">role</th>
+                        <th className="table__head  ">department</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white w-full">
+                      {result?.results?.map((item) => {
+                        return <ProfileItem key={item?.id} item={item} />;
+                      })}
+                    </tbody>
+                  </table>
+                </div>
 
-            {/* pagination */}
-
-            <div className="w-full block overflow-x-auto">
-              {result?.page_size > 1 && (
-                <Pagination
-                  page={result?.page}
-                  pageSize={result?.page_size}
-                  clickHandler={pageClickHandler}
-                />
-              )}
-            </div>
+                <div className="w-full block overflow-x-auto">
+                  {result?.page_size > 1 && (
+                    <Pagination
+                      page={result?.page}
+                      pageSize={result?.page_size}
+                      clickHandler={pageClickHandler}
+                    />
+                  )}
+                </div>
+              </>
+            ) : (
+              <EmptyResult />
+            )}
           </div>
         )}
       </div>

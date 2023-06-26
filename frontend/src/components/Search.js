@@ -39,37 +39,48 @@ function Search() {
   };
 
   return (
-    <div className="w-full flex flex-row gap-6">
-      {/* input */}
-
-      <div className="w-full max-w-[600px] flex flex-row items-center border border-gray-700 rounded-lg px-4 py-3 ">
-        <input
-          placeholder="Search by Name,LastName,Email"
-          className="w-full text-base text-black mr-4"
-          value={text}
-          onKeyDown={handleKeyPress}
-          onChange={(e) => setText(e.target.value)}
-        />
-
-        <div onClick={textClickHandler}>
-          <SearchIcon className="w-5 h-5 block text-black cursor-pointer" />
-        </div>
+    <div className="w-full flex flex-col gap-4">
+      <div>
+        <span
+          onClick={() => router.push(pathname)}
+          className="text-base text-custom_green cursor-pointer w-auto"
+        >
+          clear filter
+        </span>
       </div>
-      {/* select list */}
-      <select
-        className="border border-gray-400 rounded-lg py-2 px-1"
-        onChange={(e) => selectClickHandler(e.target.value)}
-      >
-        <option value="">--Please choose an option--</option>
 
-        {sort_list?.map((item) => {
-          return (
-            <option key={item?.id} value={item?.name}>
-              {item?.name}
-            </option>
-          );
-        })}
-      </select>
+      <div className="w-full flex flex-col md:flex-row  gap-4">
+        {/* input */}
+
+        <div className="w-full md:max-w-[600px] flex flex-row items-center border border-gray-700 rounded-lg px-4 py-3 ">
+          <input
+            placeholder="Search by Name,LastName,Email"
+            className="w-full text-base text-black mr-4"
+            value={text}
+            onKeyDown={handleKeyPress}
+            onChange={(e) => setText(e.target.value)}
+          />
+
+          <div onClick={textClickHandler}>
+            <SearchIcon className="w-5 h-5 block text-black cursor-pointer" />
+          </div>
+        </div>
+        {/* select list */}
+        <select
+          className="border border-gray-400 rounded-lg py-2 px-1"
+          onChange={(e) => selectClickHandler(e.target.value)}
+        >
+          <option value="">--Please choose an option--</option>
+
+          {sort_list?.map((item) => {
+            return (
+              <option key={item?.id} value={item?.name}>
+                {item?.name}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     </div>
   );
 }

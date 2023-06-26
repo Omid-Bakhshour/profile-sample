@@ -54,7 +54,7 @@ function Pagination({ pageSize, page, clickHandler }) {
       {page !== 1 && (
         <div
           onClick={() => clickHandler(page - 1)}
-          className=" flex gap-2 items-center text-customRed cursor-pointer text-xs font-bold"
+          className=" flex gap-2 items-center text-customRed cursor-pointer text-xs font-bold text-custom_green"
         >
           <LeftIcon className="w-5 h-5" />
           <span>previuos</span>
@@ -132,7 +132,7 @@ function Pagination({ pageSize, page, clickHandler }) {
       {page !== pageSize && (
         <div
           onClick={() => clickHandler(page + 1)}
-          className=" flex gap-2 items-center text-customRed cursor-pointer text-xs font-bold"
+          className=" flex gap-2 items-center text-customRed cursor-pointer text-xs font-bold text-custom_green"
         >
           <span>next</span>
           <RightIcon className="w-5 h-5" />
