@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+  text-decoration: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -ms-touch-action: manipulation !important;
+  touch-action: manipulation !important;
+}
+
+*:focus {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  -ms-touch-action: manipulation !important;
+  touch-action: manipulation !important;
+}
+
+@layer components {
+  .header_title {
+    @apply text-custom_green text-4xl font-bold;
+  }
+
+  .table__head {
+    @apply font-medium text-left text-white  pr-8 py-2 pl-4  whitespace-nowrap;
+  }
+
+  .table__td {
+    @apply font-medium text-left  pr-8 py-5 pl-4 text-black;
+  }
+
+  .pagination_button {
+    @apply flex w-9 h-9 items-center justify-center cursor-pointer rounded-full m-1 border-2 border-white  text-custom_green hover:text-custom_green hover:border-custom_green;
+  }
+  .pagination_selected {
+    @apply flex w-9 h-9 items-center justify-center cursor-pointer rounded-full bg-custom_green m-1 border-2 border-custom_green  text-white;
+  }
+}
