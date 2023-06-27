@@ -16,6 +16,8 @@ Starting development server at http://127.0.0.1:8000/
 
 3)next you need to install requeirment package with this code in tereminal of vs code: npm install
 
+*make .env.local file beside .env.production and copy all code inside .env.production to the .env.local and save it.
+
 4)after install was successfully you can run frontend in development mode with this code: npm run dev 
 
 5)if nothing go wrong the terminal give you the url address: localhost:3000
