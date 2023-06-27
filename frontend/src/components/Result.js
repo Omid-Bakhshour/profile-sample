@@ -54,7 +54,7 @@ function Result() {
         <LoadingList />
       ) : (
         <div className="w-full flex flex-col gap-4">
-          {result?.results.length > 0 ? (
+          {result?.results?.length > 0 ? (
             <>
               <div className="relative overflow-x-auto rounded-xl bg-tablebg border-gray-400 border shadow-sm">
                 <table className="border-collapse table-auto w-full min-w-[500px] text-sm  ">
