@@ -50,6 +50,7 @@ function Result() {
   }, [searchParams]);
   return (
     <>
+      {/* loading */}
       {loading ? (
         <LoadingList />
       ) : (

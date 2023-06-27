@@ -24,11 +24,12 @@ function ProfileItem({ item }) {
             onClick={() => setShowMore(true)}
             className="text-custom_green cursor-pointer"
           >
-            {item?.name}
+            {item?.email}
           </span>
         </td>
+        <td className="table__td   whitespace-nowrap ">{item?.name}</td>
+
         <td className="table__td   whitespace-nowrap ">{item?.last_name}</td>
-        <td className="table__td   whitespace-nowrap ">{item?.email}</td>
         <td className="table__td   whitespace-nowrap ">{item?.role}</td>
         <td className="table__td   whitespace-nowrap ">
           {item?.department?.name}
