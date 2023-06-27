@@ -11,8 +11,12 @@ Starting development server at http://127.0.0.1:8000/
 
 
 1)to run frontend you need to install node js .
+
 2)then go to frontend folder with this code in terminal: cd frontend
+
 3)next you need to install requeirment package with this code in tereminal of vs code: npm install
+
 4)after install was successfully you can run frontend in development mode with this code: npm run dev 
+
 5)if nothing go wrong the terminal give you the url address: localhost:3000
 
